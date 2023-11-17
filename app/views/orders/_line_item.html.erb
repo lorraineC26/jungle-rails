@@ -11,7 +11,7 @@
     <%=line_item.product.quantity %>
   </td>
   <td>
-    <%= number_to_currency(line_item.product.price, unit: "$") %>
+    <%= number_to_currency(line_item.product.price, unit: "$", precision: 2) %>
   </td>
 
 

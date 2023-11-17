@@ -31,7 +31,7 @@
               TOTAL:
             </th>
             <th>
-              <%= number_to_currency(cart_subtotal_cents / 100.0, unit: "$") %>
+              <%= number_to_currency(cart_subtotal_cents / 100.0, unit: "$", precision: 2) %>
             </th>
           </tr>
         </tfoot>

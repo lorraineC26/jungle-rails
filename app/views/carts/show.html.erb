@@ -5,7 +5,7 @@
   </header>
 
   <% if enhanced_cart.empty? %>
-  <h1> Your Shopping cart is empty! </h1>
+  <h1 class="alert alert-success" role="alert"> Your Shopping cart is empty! </h1>
   <%= link_to "Please go to our homepage and add some products!", root_path %>
 
   <% else %>

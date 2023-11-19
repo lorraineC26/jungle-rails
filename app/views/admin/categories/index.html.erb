@@ -1,0 +1,16 @@
+<section>
+  <header class="page-header">
+    <h1>Admin &raquo; All Categories</h1>
+  </header>
+
+  <h3>Here are the plant categories we currrently have:<h3>
+
+  <div>
+    <%= render @categories %>
+  </div>
+
+  <div class="mt-3">
+    <%= link_to '+ New Category', [:new, :admin, :category], class: 'btn btn-info' %>
+  </div>
+</section>
+

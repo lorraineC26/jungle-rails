@@ -1,0 +1,19 @@
+<section class="admin-categories-new">
+
+  <header class="page-header">
+    <h1>Admin &raquo; New Category</h1>
+  </header>
+
+  <div class="well pb-3">
+    <%= link_to 'Back to see all categories', [:admin, :categories] %>
+  </div>
+
+  <%= form_with model: @category, url: admin_categories_path, method: :post do |form| %>
+    <div class="field py-3">
+      <%= form.label :name %>
+      <%= form.text_field :name %>
+    </div>
+    <%= form.submit 'Create Category', class: 'btn btn-primary' %>
+  <% end %>
+
+</section>

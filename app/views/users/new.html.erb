@@ -1,14 +1,15 @@
-<h1>Users#new</h1>
-<p>Find me in app/views/users/new.html.erb</p>
 
-<h1>Signup!</h1>
+<header class="page-header">
+  <h1>Signup!</h1>
+</header>
 
 <%= form_for :user, url: '/users' do |f| %>
 
-  Name: <%= f.text_field :name %>
-  Email: <%= f.text_field :email %>
-  Password: <%= f.password_field :password %>
-  Password Confirmation: <%= f.password_field :password_confirmation %>
-  <%= f.submit "Submit" %>
+  <ul class="py-2">First Name: <%= f.text_field :first_name %></ul>
+  <ul class="py-2">Last Name: <%= f.text_field :last_name %></ul>
+  <ul class="py-2">Email: <%= f.text_field :email %></ul>
+  <ul class="py-2">Password: <%= f.password_field :password %></ul>
+  <ul class="py-2">Password Confirmation: <%= f.password_field :password_confirmation %></ul>
+  <ul class="py-2"><%= f.submit "Submit" %></ul>
 
 <% end %>

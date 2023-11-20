@@ -14,9 +14,6 @@ Rails.application.routes.draw do
   resources :products, only: [:index, :show]
   resources :categories, only: [:show]
   resources :about, only: [:index]
-  # user auth
-  resources :users, only: [:new, :create]
-  resources :sessions, only: [:new, :create, :destroy]
 
   resource :cart, only: [:show] do
     post   :add_item

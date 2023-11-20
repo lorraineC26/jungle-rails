@@ -8,8 +8,8 @@ Rails.application.routes.draw do
   get '/logout', to: 'sessions#destroy'
 
   # routes for user signup
-  get '/signup', to: 'users#new' # render form in browser
-  post '/users', to: 'users#create' # receive form and insert user info to db
+  get '/signup', to: 'users#new', as: 'signup' # render form in browser
+  post '/signup', to: 'users#create' # receive form and insert user info to db
 
   resources :products, only: [:index, :show]
   resources :categories, only: [:show]

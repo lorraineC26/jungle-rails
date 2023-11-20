@@ -10,9 +10,10 @@ class UsersController < ApplicationController
       session[:user_id] = @user.id
       redirect_to root_path, notice: 'Account successfully created and logged in!'
     else
-      # when params is missing -> back to signup form
-      flash[:error] = 'Field missing'
-      redirect_to '/signup'
+      # # when params is missing -> back to signup form
+      # flash[:error] = 'Fields can not be empty'
+      # redirect_to '/signup'
+      render :new
     end
   end
 

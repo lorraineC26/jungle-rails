@@ -2,12 +2,13 @@
   <h1>Signup</h1>
 </header>
 
-<%= form_for :user, url: '/users' do |f| %>
-
+<%= form_for @user, url: signup_path do |f| %>
+  
   <% if @user.errors.any? %>
     <div class="alert alert-danger">
       <strong> Signup failed: </strong>
       <ul>
+        # showing validation error msg
         <% @user.errors.full_messages.each do |error| %>
           <li><%= error %></li>
         <% end %>

@@ -1,15 +1,22 @@
 Rails.application.routes.draw do
 
-  get 'sessions/new'
-  get 'sessions/create'
-  get 'sessions/destroy'
-  get 'users/new'
-  get 'users/create'
   root to: 'products#index'
+
+  # routes for user login, showing login form, logout
+  get '/login',  to: 'sessions#new'
+  post '/login', to: 'sessions#create'
+  get '/logout', to: 'sessions#destroy'
+
+  # routes for user signup
+  get '/signup', to: 'users#new' # render form in browser
+  post '/users', to: 'users#create' # receive form and insert user info to db
 
   resources :products, only: [:index, :show]
   resources :categories, only: [:show]
   resources :about, only: [:index]
+  # user auth
+  resources :users, only: [:new, :create]
+  resources :sessions, only: [:new, :create, :destroy]
 
   resource :cart, only: [:show] do
     post   :add_item

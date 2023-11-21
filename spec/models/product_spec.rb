@@ -32,8 +32,13 @@ RSpec.describe Product, type: :model do
       expect(@product.price).to be_nil
       
       expect(@product.save).to be false
-      expect(@product.errors.full_messages).to include("Price can't be blank")
-      
+      expect(@product.errors.full_messages).to include("Price can't be blank") 
+    end
+
+    it "should not save with the absence of quantity" do
+      @product.quantity = nil
+      expect(@product.save).to be false
+      expect(@product.errors.full_messages).to include("Quantity can't be blank")
     end
 
 

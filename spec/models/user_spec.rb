@@ -47,7 +47,7 @@ RSpec.describe User, type: :model do
       @user2 = User.new(
         first_name: 'John',
         last_name: 'Doe',
-        email: 'johnDoe@com',
+        email: 'johnDOE@com',
         password: 'password123',
         password_confirmation: 'password123'
       )
@@ -78,15 +78,29 @@ RSpec.describe User, type: :model do
     end
 
     it 'should authenticate with valid credentials' do
-        authenticated_user = User.authenticate_with_credentials('johndoe@com', 'password123')
-        expect(authenticated_user).to eq(@user)
+      test_user = User.authenticate_with_credentials('johndoe@com', 'password123')
+      expect(test_user).to eq(@user)
     end
 
-     it 'should return nil with wrong email' do
-        test_user = User.authenticate_with_credentials('john@com', 'password123')
-        expect(test_user).to be_nil
+    it 'should return nil with wrong email' do
+      test_user = User.authenticate_with_credentials('john@com', 'password123')
+      expect(test_user).to be_nil
     end
 
+    it 'should return nil with wrong password' do
+      test_user = User.authenticate_with_credentials('johndoe@com', 'incorrectpassword')
+      expect(test_user).to be_nil
+    end
+
+    it 'should authenticate with email with leading/trailing whitespaces' do
+      test_user = User.authenticate_with_credentials('     johndoe@com  ', 'password123')
+      expect(test_user).to eq(@user)
+    end
+
+    it 'should authenticate with email in different cases' do
+        test_user = User.authenticate_with_credentials('johnDOE@com', 'password123')
+        expect(test_user).to eq(@user)
+    end
 
 
   end

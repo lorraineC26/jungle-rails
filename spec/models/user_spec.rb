@@ -23,6 +23,16 @@ RSpec.describe User, type: :model do
       expect(@user.save).to be false
     end
 
+    it "should not be saved with absent last_name" do
+      @user.last_name = nil
+      expect(@user.save).to be false
+    end
+
+    it "should not be saved with absent email" do
+      @user.email = nil
+      expect(@user.save).to be false
+    end
+
     it "should not be saved when password and password_confirmation fields are different" do
       @user.password_confirmation = '123'
       expect(@user.save).to be false

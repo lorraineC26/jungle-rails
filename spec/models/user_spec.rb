@@ -33,13 +33,13 @@ RSpec.describe User, type: :model do
       expect(@user.save).to be false
     end
 
-    it "should not be saved when password and password_confirmation fields are different" do
-      @user.password_confirmation = '123'
+    it "should not be saved with absent password fields" do
+      @user.password = nil || @user.password_confirmation = nil
       expect(@user.save).to be false
     end
 
-    it "should not be saved when missing password fields" do
-      @user.password = nil || @user.password_confirmation = nil
+    it "should not be saved when password and password_confirmation fields are different" do
+      @user.password_confirmation = '123'
       expect(@user.save).to be false
     end
 
@@ -55,6 +55,11 @@ RSpec.describe User, type: :model do
       @user.save
         
       expect(@user2.save).to be false
+    end
+
+    it "should faile when password does not meet the minium length of 6 characters" do
+      @user.password = '123' && @user.password_confirmation = '123'
+      expect(@user.save).to be false
     end
 
     

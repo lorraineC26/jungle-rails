@@ -25,6 +25,18 @@ RSpec.describe Product, type: :model do
       expect(@product.errors.full_messages).to include("Name can't be blank")
     end
 
+    it "should not save with the absence of price" do
+      # set the price_cents attribute to nil since Money gem often has an underlying attribute to store the cents value
+      # set product.price to nil -> 0.00 
+      @product.price_cents = nil
+      expect(@product.price).to be_nil
+      
+      expect(@product.save).to be false
+      expect(@product.errors.full_messages).to include("Price can't be blank")
+      
+    end
+
+
 
 
 

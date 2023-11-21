@@ -2,7 +2,9 @@ class User < ApplicationRecord
   # provided by Rails and handles password encryption using bcrypt
   has_secure_password
   
-  def self.authenticate_with_credentials(email, password) 
+  def self.authenticate_with_credentials(email= '', password= '') 
+    return nil if email.blank? || password.blank?
+    
     # Find the user by email
     # Performing a case-insensitive search after stripping leading and trailing whitespaces
     user = User.find_by('LOWER(email) = ?', email.downcase.strip)

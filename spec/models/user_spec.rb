@@ -67,7 +67,7 @@ RSpec.describe User, type: :model do
   describe '.authenticate_with_credentials' do
 
     before(:each) do
-      # a user with all valid fields
+      # make a user existed with all valid fields
       @user = User.create(
         first_name: 'John',
         last_name: 'Doe',
@@ -80,6 +80,11 @@ RSpec.describe User, type: :model do
     it 'should authenticate with valid credentials' do
       test_user = User.authenticate_with_credentials('johndoe@com', 'password123')
       expect(test_user).to eq(@user)
+    end
+
+    it 'should return nil with absent email or password' do
+      test_user = User.authenticate_with_credentials()
+      expect(test_user).to be_nil
     end
 
     it 'should return nil with wrong email' do

@@ -65,8 +65,30 @@ RSpec.describe User, type: :model do
   end
 
   describe '.authenticate_with_credentials' do
-    # examples for this class method here
-    
+
+    before(:each) do
+      # a user with all valid fields
+      @user = User.create(
+        first_name: 'John',
+        last_name: 'Doe',
+        email: 'johndoe@com',
+        password: 'password123',
+        password_confirmation:'password123'
+      )
+    end
+
+    it 'should authenticate with valid credentials' do
+        authenticated_user = User.authenticate_with_credentials('johndoe@com', 'password123')
+        expect(authenticated_user).to eq(@user)
+    end
+
+     it 'should return nil with wrong email' do
+        test_user = User.authenticate_with_credentials('john@com', 'password123')
+        expect(test_user).to be_nil
+    end
+
+
+
   end
 
 end

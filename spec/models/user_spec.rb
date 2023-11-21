@@ -18,6 +18,11 @@ RSpec.describe User, type: :model do
       expect(@user.save).to be true
     end
 
+    it "should not be saved with absent first_name" do
+      @user.first_name = nil
+      expect(@user.save).to be false
+    end
+
     it "should not be saved when password and password_confirmation fields are different" do
       @user.password_confirmation = '123'
       expect(@user.save).to be false
@@ -26,6 +31,20 @@ RSpec.describe User, type: :model do
     it "should not be saved when missing password fields" do
       @user.password = nil || @user.password_confirmation = nil
       expect(@user.save).to be false
+    end
+
+    it "should not be saved when email has been registered already (case insensitive)" do
+      @user2 = User.new(
+        first_name: 'John',
+        last_name: 'Doe',
+        email: 'johnDoe@com',
+        password: 'password123',
+        password_confirmation: 'password123'
+      )
+
+      @user.save
+        
+      expect(@user2.save).to be false
     end
 
     

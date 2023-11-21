@@ -62,12 +62,11 @@ RSpec.describe User, type: :model do
       expect(@user.save).to be false
     end
 
-    
-
   end
 
   describe '.authenticate_with_credentials' do
     # examples for this class method here
+    
   end
 
 end

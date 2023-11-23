@@ -6,6 +6,11 @@ Access to certain features is only allowed for admin users via authentication, e
 
 ## APP Interface
 - Homepage
+![Homepage](https://github.com/lorraineC26/jungle-rails/blob/master/doc/homepage.png?raw=true)
+
+- Product Details
+![Product Details](https://github.com/lorraineC26/jungle-rails/blob/master/doc/homepage.png?raw=true)
+
 
 
 

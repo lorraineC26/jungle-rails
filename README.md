@@ -1,6 +1,14 @@
 # Jungle
 
-A mini e-commerce application built with Rails 6.1 for purposes of teaching Rails by example.
+A mini e-commerce application built with Rails 6.1. It allows users to purchase different types of plants via browsing through the homepage, sorting plants by category, reading descriptions, etc. Navigation is smooth and simple. Sensitive information is stored safely via bcrypt gem. Users can place orders either as a guest or a registered member.
+
+Access to certain features is only allowed for admin users via authentication, e.g., managing categories and products.
+
+## APP Interface
+- Homepage
+
+
+
 
 ## Setup
 

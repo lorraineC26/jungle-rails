@@ -4,18 +4,25 @@ A mini e-commerce application built with Rails 6.1. It allows users to purchase 
 
 Access to certain features is only allowed for admin users via authentication, e.g., managing categories and products.
 
+
 ## APP Interface
-- Homepage
+❇︎ Homepage
 ![Homepage](https://github.com/lorraineC26/jungle-rails/blob/master/doc/homepage.png?raw=true)
 
-- Product Details
-![Product Details](https://github.com/lorraineC26/jungle-rails/blob/master/doc/homepage.png?raw=true)
+❇︎ Product Details
+![Product Details](https://github.com/lorraineC26/jungle-rails/blob/master/doc/product-details.png?raw=true)
+
+❇︎ Shopping Cart and Payment
+![Shopping Cart and Payment](https://github.com/lorraineC26/jungle-rails/blob/master/doc/my-cart.png?raw=true)
+
+❇︎ Signup Validation
+![Signup Validation](https://github.com/lorraineC26/jungle-rails/blob/master/doc/signup-validation.png?raw=true)
+
+❇︎ Admin Feature
+![Admin Feature](https://github.com/lorraineC26/jungle-rails/blob/master/doc/admin.png?raw=true)
 
 
-
-
-
-## Setup
+## Getting Started
 
 1. Run `bundle install` to install dependencies
 2. Create `config/database.yml` by copying `config/database.example.yml`
@@ -42,3 +49,5 @@ More information in their docs: <https://stripe.com/docs/testing#cards>
 - Bootstrap 5
 - PostgreSQL 9.x
 - Stripe
+- cypress-rails
+- rspec-rails
